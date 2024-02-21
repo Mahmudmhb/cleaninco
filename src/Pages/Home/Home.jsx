@@ -1,12 +1,15 @@
+import Testimonial from "../../Components/Testimonial";
 import Navber from "../../Sheard/Headers/Navber";
 import Slider from "../../Sheard/Slider/Slider";
+import Process from "../Services/ServicesProvide/Process";
 
 const Home = () => {
   return (
     <div>
       <Navber></Navber>
       <Slider></Slider>
-      <h1>this is home page</h1>
+      <Process></Process>
+      <Testimonial></Testimonial>
     </div>
   );
 };

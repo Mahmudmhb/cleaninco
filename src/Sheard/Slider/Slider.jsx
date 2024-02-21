@@ -2,73 +2,97 @@ import slider1 from "../../assets/slider/full-shot-men-cleaning-office_23-214934
 import slider2 from "../../assets/slider/full-shot-people-cleaning-office_23-2150454568.avif";
 import slider3 from "../../assets/slider/professional-cleaning-service-people-working-together-office_23-2150520596.avif";
 import sliderleft from "../../assets/slider/slider-img-1.png";
+import { LuPlayCircle } from "react-icons/lu";
 
 const Slider = () => {
   return (
-    <div className="carousel h-[80vh] w-full">
+    <div className="carousel h-[100vh] w-full">
       <div id="slide1" className="carousel-item relative w-full">
-        <img
-          src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-          className="w-full"
-        />
-        <div className="absolute justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <img src={sliderleft} alt="" />
-          <h1 className="text-5xl font-bold text-[#052943]">
-            We Cover Large <br /> Range of Cleaning <br />
-            Services
-          </h1>
-          <button className="btn btn-warning uppercase pr-5 mr-5">
-            Warning
-          </button>
-          <button className="uppercase font-bold">Watch Video</button>
+        <img src={slider1} className="w-full" />
+        <div className="absolute flex items-center transform -translate-y-1/2  w-1/2 h-full top-1/2 bg-gradient-to-r from-[#eefafa] ">
+          <div className=" ml-10 space-y-7">
+            <img src={sliderleft} alt="" />
+            <h1 className="text-5xl font-bold   text-[#052943]">
+              We Cover Large <br /> Range of Cleaning <br />
+              Services
+            </h1>
+            <div className="flex items-center">
+              {" "}
+              <button className="hover:text-white rounded-none hover:translate-x-2 border-none btn btn-warning uppercase pr-5 mr-5">
+                Contact us
+              </button>
+              <button className="hover:text-white flex items-center rounded-none hover:translate-x-2 border-none uppercase font-bold">
+                <LuPlayCircle className="mr-2" />
+                Watch Video
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide4" className="btn btn-circle">
+        <div className="absolute flex justify-end bottom-0 transform -translate-y-1/2 left-5 right-5 ">
+          <a href="#slide3" className="btn hover:text-2xl rounded-none">
             ❮
           </a>
-          <a href="#slide2" className="btn btn-circle">
+          <a href="#slide2" className="btn hover:text-2xl rounded-none">
             ❯
           </a>
         </div>
       </div>
       <div id="slide2" className="carousel-item relative w-full">
-        <img
-          src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-          className="w-full"
-        />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide1" className="btn btn-circle">
+        <img src={slider2} className="w-full" />
+        <div className="absolute flex items-center transform -translate-y-1/2  w-1/2 h-full top-1/2 bg-gradient-to-r from-[#f3f4f6] ">
+          <div className=" ml-10 space-y-7">
+            <img src={sliderleft} alt="" />
+            <h1 className="text-5xl font-bold   text-[#052943]">
+              We Cover Large <br /> Range of Cleaning <br />
+              Services
+            </h1>
+            <div className="flex items-center">
+              {" "}
+              <button className="hover:text-white rounded-none hover:translate-x-2 border-none btn btn-warning uppercase pr-5 mr-5">
+                Contact us
+              </button>
+              <button className="hover:text-white flex items-center rounded-none hover:translate-x-2 border-none uppercase font-bold">
+                <LuPlayCircle className="mr-2" />
+                Watch Video
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="absolute flex justify-end bottom-0 transform -translate-y-1/2 left-5 right-5 ">
+          <a href="#slide1" className="btn hover:text-2xl rounded-none">
             ❮
           </a>
-          <a href="#slide3" className="btn btn-circle">
+          <a href="#slide3" className="btn hover:text-2xl rounded-none">
             ❯
           </a>
         </div>
       </div>
       <div id="slide3" className="carousel-item relative w-full">
-        <img
-          src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
-          className="w-full"
-        />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide2" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide4" className="btn btn-circle">
-            ❯
-          </a>
+        <img src={slider3} className="w-full" />
+        <div className="absolute flex items-center transform -translate-y-1/2  w-1/2 h-full top-1/2 bg-gradient-to-r from-[#f3f4f6] ">
+          <div className=" ml-10 space-y-7">
+            <img src={sliderleft} alt="" />
+            <h1 className="text-5xl font-bold   text-[#052943]">
+              We Cover Large <br /> Range of Cleaning <br />
+              Services
+            </h1>
+            <div className="flex items-center">
+              {" "}
+              <button className="hover:text-white rounded-none hover:translate-x-2 border-none btn btn-warning uppercase pr-5 mr-5">
+                Contact us
+              </button>
+              <button className="hover:text-white flex items-center rounded-none hover:translate-x-2 border-none uppercase font-bold">
+                <LuPlayCircle className="mr-2" />
+                Watch Video
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div id="slide4" className="carousel-item relative w-full">
-        <img
-          src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-          className="w-full"
-        />
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide3" className="btn btn-circle">
+        <div className="absolute flex justify-end bottom-0 transform -translate-y-1/2 left-5 right-5 ">
+          <a href="#slide2" className="btn hover:text-2xl rounded-none">
             ❮
           </a>
-          <a href="#slide1" className="btn btn-circle">
+          <a href="#slide1" className="btn hover:text-2xl rounded-none">
             ❯
           </a>
         </div>
