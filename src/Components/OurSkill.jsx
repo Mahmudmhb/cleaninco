@@ -3,9 +3,11 @@ import skill2 from "../assets/skills/Client-02.png";
 import skill3 from "../assets/skills/Client-03.png";
 import skill4 from "../assets/skills/Client-04.png";
 import skill5 from "../assets/skills/Client-new06.png";
+import Marquee from "react-fast-marquee";
+
 const OurSkill = () => {
   return (
-    <div>
+    <div className="border-b-2 my-5">
       <div className="md:flex mt-10">
         <div className="md:w-1/2">
           <h1 className="text-xl text-[#2097fc]">OUR SKILLS</h1>
@@ -56,11 +58,13 @@ const OurSkill = () => {
         </div>
       </div>
       <div className="flex justify-between py-10">
-        <img src={skill1} alt="" />
-        <img src={skill2} alt="" />
-        <img src={skill3} alt="" />
-        <img src={skill4} alt="" />
-        <img src={skill5} alt="" />
+        <Marquee className="">
+          <img src={skill1} alt="" className="mr-20 hover:" />
+          <img src={skill2} alt="" className="mr-20" />
+          <img src={skill3} alt="" className="mr-20" />
+          <img src={skill4} alt="" className="mr-20" />
+          <img src={skill5} alt="" className="mr-20" />
+        </Marquee>
       </div>
     </div>
   );
