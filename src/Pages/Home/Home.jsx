@@ -1,3 +1,4 @@
+import Blogs from "../../Components/Blogs/Blogs";
 import OurSkill from "../../Components/OurSkill";
 import Success from "../../Components/Success";
 import Testimonial from "../../Components/Testimonial";
@@ -16,6 +17,7 @@ const Home = () => {
         <OurSkill></OurSkill>
       </div>
       <Success></Success>
+      <Blogs></Blogs>
     </div>
   );
 };
