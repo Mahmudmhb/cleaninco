@@ -8,9 +8,9 @@ const Process = () => {
       .then((res) => res.json())
       .then((data) => SetProcesses(data));
   }, []);
-  console.log(procsses);
+  // console.log(procsses);
   return (
-    <div>
+    <div className="">
       <div className="text-center scroll-py-5 py-12">
         <h1 className="text-xl text-[#2097fc]">OUR PROCESS</h1>
         <p className="text-5xl text-[#052944] py-5">
