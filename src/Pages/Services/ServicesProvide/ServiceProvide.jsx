@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
 import { HiPhoneMissedCall } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const ServiceProvide = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("/public/services.json")
+    fetch("http://localhost:5000/services/")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
 
   return (
-    <div className="my-10">
-      <div className="grid md:grid-cols-3 gap-4">
+    <div className="my-10 mt-20 relative">
+      <div className="grid w-5/6 mx-auto md:grid-cols-3 gap-4">
         <div className=" py-12 col-span-1 ">
           <div>
             <h1 className="text-xl text-[#2097fc]">SERVICE PROVIDE</h1>
-            <p className="text-4xl text-[#052944] py-5">
+            <p className="text-4xl text-[#052944] my-12">
               We are proving all type of cleaning solutions for every small and
               big businesses.
             </p>
           </div>
-          <div className="bg-[#fae33c]   p-10">
+          <div className="bg-[#fae33c]   p-10 md:absolute">
             <h1 className="text-xl mt-5">
               FOR SERVICES & IMMEDIATE <br /> ATTENTION 24/7
             </h1>
@@ -36,25 +37,34 @@ const ServiceProvide = () => {
 
         <div className=" col-span-2 grid md:grid-cols-2 gap-3 ">
           {services.slice(0, 4).map((service) => (
-            <div
-              key={service.id}
-              className="card  bg-base-100 shadow-xl h-80  image-full"
-            >
+            <div key={service.id} className="card  shadow-xl h-80 image-full">
               <figure>
                 <img src={service.image1} alt={service.heading1} />
               </figure>
               <div className="card-body">
-                <h2 className="card-title mt-20 hover:text-[#2097fc] text-2xl">
+                <h2 className="card-title mt-20 hover:text-[#2097fc] text-3xl">
                   {service.heading1}
                 </h2>
-                <p>{service.heading2}</p>
+                <p className="hover:text-[#2097fc] text-xl">
+                  {service.heading2}
+                </p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Details</button>
+                  <Link to={`/servicedetails/${service._id}`}>
+                    <button className="hover:text-white  hover:translate-x-2 border-none btn btn-warning uppercase pr-5 rounded mr-5">
+                      details
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+      <div className="w-full  ">
+        <img
+          src="https://cleaninco-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2019/04/Bg-img-01.jpg?id=9709"
+          alt=""
+        />
       </div>
     </div>
   );

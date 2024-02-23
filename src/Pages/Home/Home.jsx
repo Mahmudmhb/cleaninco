@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <div>
       <Slider></Slider>
+      <ServiceProvide></ServiceProvide>
       <div className="w-5/6 mx-auto">
-        <ServiceProvide></ServiceProvide>
         <Process></Process>
         <Testimonial></Testimonial>
         <OurSkill></OurSkill>
