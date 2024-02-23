@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    fetch("/public/blogs.json")
+    fetch("http://localhost:5000/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
@@ -23,7 +23,7 @@ const Blogs = () => {
         {blogs.map((blog) => (
           <div key={blog.id} className="mx-auto w-96 bg-base-100 ">
             <figure className="relative">
-              <img src={blog.image1} alt="Shoes" />
+              <img src={blog.image1} alt={blog.heading1} />
             </figure>
             <div>
               <h1 className="bg-[#ffe52c]  hover:text-[#2097fc] transition duration-700ease-in-out absolute uppercase font-bold -mt-6 px-2  hover:px-3  ">
@@ -33,11 +33,12 @@ const Blogs = () => {
             <div className=" mt-5 space-y-2">
               <div></div>
               <p className="text-[#2097fc]  text-xl font-bold">{blog.date}</p>
-              <Link to={`/blogdetails/${blog.id}`}>
-                <div className="text-2xl font-bold hover:text-[#2097fc] text-[#052944] transition duration-700ease-in-out">
-                  {blog.heading1}
-                </div>
-              </Link>
+
+              <div className="text-2xl font-bold hover:text-[#2097fc] text-[#052944] transition duration-700ease-in-out">
+                <Link to={`/blogdetails/${blog._id}`}>
+                  <button className="text-left">{blog.heading1}</button>
+                </Link>
+              </div>
 
               <p>{blog.heading4}</p>
             </div>

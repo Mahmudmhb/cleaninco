@@ -1,3 +1,5 @@
+import logo from "../../assets/Logo/logo-1.png";
+import { NavLink } from "react-router-dom";
 import {
   Avatar,
   Dropdown,
@@ -10,20 +12,28 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
-import logo from "../../assets/Logo/logo-1.png";
-import { Link } from "react-router-dom";
 
+const nav = (
+  <>
+    <li>
+      <NavLink to="/">Home</NavLink>
+    </li>
+    <li>
+      {" "}
+      <NavLink to="/about">About</NavLink>
+    </li>
+    <li>
+      {" "}
+      <NavLink to="/contact">Contact</NavLink>
+    </li>
+  </>
+);
 const Navber = () => {
   return (
     <div>
-      <Navbar fluid rounded>
-        <NavbarBrand>
-          <Link to="/">
-            <img src={logo} className=" h-6 sm:h-9" alt="cleaninco" />
-          </Link>
-          {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite React
-          </span> */}
+      <Navbar className="h-20" fluid rounded>
+        <NavbarBrand href="/">
+          <img src={logo} className="mr-3 h-6 sm:h-9" alt="cleaninco " />
         </NavbarBrand>
         <div className="flex md:order-2">
           <Dropdown
@@ -51,14 +61,8 @@ const Navber = () => {
           </Dropdown>
           <NavbarToggle />
         </div>
-        <NavbarCollapse>
-          <NavbarLink href="#" active>
-            Home
-          </NavbarLink>
-          <NavbarLink href="#">About</NavbarLink>
-          <NavbarLink href="#">Services</NavbarLink>
-          <NavbarLink href="#">Pricing</NavbarLink>
-          <NavbarLink href="#">Contact</NavbarLink>
+        <NavbarCollapse className="uppercase text-[#052944]">
+          {nav}
         </NavbarCollapse>
       </Navbar>
     </div>
