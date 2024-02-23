@@ -1,5 +1,5 @@
 import logo from "../../assets/Logo/logo-1.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Avatar,
   Dropdown,
@@ -36,6 +36,9 @@ const Navber = () => {
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="cleaninco " />
         </NavbarBrand>
         <div className="flex md:order-2">
+          <Link className="uppercase p-2" to="/login">
+            Login
+          </Link>
           <Dropdown
             arrowIcon={false}
             inline
