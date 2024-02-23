@@ -6,12 +6,14 @@ import Root from "../../Root/Root";
 // import Navber from "../../Sheard/Headers/Navber";
 import Slider from "../../Sheard/Slider/Slider";
 import Process from "../Services/ServicesProvide/Process";
+import ServiceProvide from "../Services/ServicesProvide/ServiceProvide";
 
 const Home = () => {
   return (
     <div>
       <Slider></Slider>
       <div className="w-5/6 mx-auto">
+        <ServiceProvide></ServiceProvide>
         <Process></Process>
         <Testimonial></Testimonial>
         <OurSkill></OurSkill>
