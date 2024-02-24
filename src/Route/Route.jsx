@@ -7,12 +7,15 @@ import Contact from "../Pages/Contact";
 import ServiceDetails from "../Pages/Services/ServicesProvide/ServiceDetails";
 import Login from "../Pages/LoginPage/Login";
 import SignUp from "../Pages/LoginPage/SignUp";
+import ErrorPage from "../Pages/ErrorPage";
+import Services from "../Pages/Services";
+import AddService from "../Pages/Services/AddService";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    // errorElement: <errorElement></errorElement>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -25,8 +28,12 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/blogs/${params.id}`),
       },
       {
-        path: "/about",
-        element: <About></About>,
+        path: "/services",
+        element: <Services></Services>,
+      },
+      {
+        path: "/addservice",
+        element: <AddService></AddService>,
       },
       {
         path: "/contact",

@@ -1,10 +1,32 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
+  const { handleLogin } = useContext(AuthContext);
+  const handleSignIn = (event) => {
+    event.preventDefault();
+    const from = event.target;
+    const email = from.email.value;
+    const password = from.password.value;
+    // const userLogin = { email, password };
+    handleLogin(email, password)
+      .then((result) => {
+        alert("user login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    // console.log(userLogin);
+  };
   return (
     <div className=" my-10 w-5/6 mx-auto  ">
       <div className="">
-        <form className="flex max-w-md mx-auto flex-col gap-4">
+        <form
+          onSubmit={handleSignIn}
+          className="flex max-w-md mx-auto flex-col gap-4"
+        >
           <div>
             <div className="mb-2 block">
               <Label htmlFor="email1" value="Your email" />
@@ -37,7 +59,6 @@ const Login = () => {
             <h1>
               Are you New?
               <Link to="/signup">
-                {" "}
                 <span>Sign Up</span>
               </Link>
             </h1>

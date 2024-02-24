@@ -9,9 +9,10 @@ import {
   Navbar,
   NavbarBrand,
   NavbarCollapse,
-  NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const nav = (
   <>
@@ -20,7 +21,11 @@ const nav = (
     </li>
     <li>
       {" "}
-      <NavLink to="/about">About</NavLink>
+      <NavLink to="/services">Services</NavLink>
+    </li>
+    <li>
+      {" "}
+      <NavLink to="/addservice">Add Service</NavLink>
     </li>
     <li>
       {" "}
@@ -29,6 +34,12 @@ const nav = (
   </>
 );
 const Navber = () => {
+  const { user, handleLogOut } = useContext(AuthContext);
+  // console.log(user);
+  const handleSignOut = () => {
+    handleLogOut().then().catch();
+  };
+
   return (
     <div>
       <Navbar className="h-20" fluid rounded>
@@ -36,33 +47,34 @@ const Navber = () => {
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="cleaninco " />
         </NavbarBrand>
         <div className="flex md:order-2">
-          <Link className="uppercase p-2" to="/login">
-            Login
-          </Link>
-          <Dropdown
-            arrowIcon={false}
-            inline
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                rounded
-              />
-            }
-          >
-            <DropdownHeader>
-              <span className="block text-sm">Bonnie Green</span>
-              <span className="block truncate text-sm font-medium">
-                name@flowbite.com
-              </span>
-            </DropdownHeader>
-            <DropdownItem>Dashboard</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
-            <DropdownItem>Earnings</DropdownItem>
-            <DropdownDivider />
-            <DropdownItem>Sign out</DropdownItem>
-          </Dropdown>
-          <NavbarToggle />
+          {user ? (
+            <>
+              <Dropdown
+                arrowIcon={false}
+                inline
+                label={
+                  <Avatar alt="User settings" img={user?.photoURL} rounded />
+                }
+              >
+                <DropdownHeader>
+                  <span className="block text-sm">{user?.displayName}</span>
+                  <span className="block truncate text-sm font-medium">
+                    {user?.email}
+                  </span>
+                </DropdownHeader>
+                <DropdownItem>Dashboard</DropdownItem>
+                <DropdownItem>Settings</DropdownItem>
+                <DropdownItem>Earnings</DropdownItem>
+                <DropdownDivider />
+                <DropdownItem onClick={handleSignOut}>Sign out</DropdownItem>
+              </Dropdown>
+              <NavbarToggle />
+            </>
+          ) : (
+            <Link className="uppercase p-2" to="/login">
+              Login
+            </Link>
+          )}
         </div>
         <NavbarCollapse className="uppercase text-[#052944]">
           {nav}
