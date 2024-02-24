@@ -61,7 +61,9 @@ const Navber = () => {
                 </DropdownHeader>
                 <DropdownItem>Dashboard</DropdownItem>
                 <DropdownItem>
-                  {" "}
+                  <NavLink to="/manageservice">Manage User Service</NavLink>
+                </DropdownItem>
+                <DropdownItem>
                   <NavLink to="/addservice">Add Service</NavLink>
                 </DropdownItem>
                 <DropdownItem>Settings</DropdownItem>

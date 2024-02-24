@@ -11,6 +11,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import Services from "../Pages/Services";
 import AddService from "../Pages/Services/AddService";
 import UserServiseDetails from "../Pages/Services/UserServiseDetails";
+import ManageServices from "../Pages/Services/ManageServices";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         element: <UserServiseDetails></UserServiseDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/newservices/${params.id}`),
+      },
+      {
+        path: "/manageservice",
+        element: <ManageServices></ManageServices>,
       },
       {
         path: "/addservice",

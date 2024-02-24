@@ -7,7 +7,7 @@ const Services = () => {
   const services = useLoaderData();
   const [servicesData, setServicesData] = useState(services);
   const [search, setSearch] = useState("");
-  console.log(loadmore);
+  // console.log(loadmore);
   const handlesearch = (e) => {
     const searchValue = e.target.value;
     setSearch(searchValue);
@@ -59,11 +59,11 @@ const Services = () => {
               </figure>
               <div className="card-body">
                 <h2 className="card-title  flex justify-between">
-                  <span className="text-xl text-[#052944]">
+                  <span className="text-xl text-left text-[#052944]">
                     {" "}
                     {service.serviceName}
                   </span>
-                  <div className="badge  p-3 badge-secondary">
+                  <div className="badge  badge-secondary">
                     Price: ${service.price}
                   </div>
                 </h2>
@@ -73,7 +73,7 @@ const Services = () => {
                     <img
                       src={service.ProviderImage}
                       alt=""
-                      className="w-16 h-16 rounded-full"
+                      className="w-12 h-12 rounded-full"
                     />
                     <div className="text-left">
                       <h1>{service.name}</h1>

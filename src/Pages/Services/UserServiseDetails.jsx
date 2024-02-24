@@ -42,7 +42,7 @@ const UserServiseDetails = () => {
       ProviderImage,
       date,
     };
-    console.log(AddBooked);
+    // console.log(AddBooked);
 
     axios
       .post("http://localhost:5000/addbook", {
@@ -216,14 +216,15 @@ const UserServiseDetails = () => {
                   <div className="mb-2 block">
                     <Label
                       htmlFor="description"
-                      value="○ Special instruction
+                      value="Special instruction
 "
                     />
                   </div>
                   <Textarea
                     id="description"
                     type="text"
-                    placeholder="description"
+                    placeholder="anything like address , area, customized service plan.
+                    "
                     required
                     name="description"
                   />

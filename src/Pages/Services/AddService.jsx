@@ -1,5 +1,5 @@
 import { Button, Checkbox, Label, TextInput, Textarea } from "flowbite-react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -29,25 +29,27 @@ const AddService = () => {
     // };
     // // console.log(AddServices);
 
-    axios
-      .post("http://localhost:5000/newservices", {
-        name,
-        photoUrl,
-        email,
-        price,
-        description,
-        area,
-        serviceName,
-        ProviderImage,
-      })
-      .then((res) => {
-        // console.log(res);
-        // console.log(res.data);
-        alert("post service");
-      })
-      .catch((data) => {
-        // console.log(data.data);
-      });
+    useEffect(() => {
+      axios
+        .post("http://localhost:5000/newservices", {
+          name,
+          photoUrl,
+          email,
+          price,
+          description,
+          area,
+          serviceName,
+          ProviderImage,
+        })
+        .then((res) => {
+          // console.log(res);
+          // console.log(res.data);
+          alert("post service");
+        })
+        .catch((data) => {
+          // console.log(data.data);
+        });
+    }, []);
   };
 
   return (
