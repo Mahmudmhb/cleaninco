@@ -10,7 +10,7 @@ const ServiceDetails = () => {
       .then((data) => setServices(data));
   }, []);
   const loader = useLoaderData();
-  console.log(loader);
+  // console.log(loader);
   const {
     heading1,
     heading2,

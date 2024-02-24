@@ -2,9 +2,11 @@ import { Button, Checkbox, Label, TextInput, Textarea } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
+  const ProviderImage = user?.photoURL;
   const handleAddService = (event) => {
     event.preventDefault();
     const from = event.target;
@@ -16,16 +18,36 @@ const AddService = () => {
     const area = from.serviceArea.value;
     const serviceName = from.serviceName.value;
 
-    const AddServices = {
-      name,
-      photoUrl,
-      email,
-      price,
-      description,
-      area,
-      serviceName,
-    };
-    console.log(AddServices);
+    // const AddServices = {
+    //   name,
+    //   photoUrl,
+    //   email,
+    //   price,
+    //   description,
+    //   area,
+    //   serviceName,
+    // };
+    // // console.log(AddServices);
+
+    axios
+      .post("http://localhost:5000/newservices", {
+        name,
+        photoUrl,
+        email,
+        price,
+        description,
+        area,
+        serviceName,
+        ProviderImage,
+      })
+      .then((res) => {
+        // console.log(res);
+        // console.log(res.data);
+        alert("post service");
+      })
+      .catch((data) => {
+        // console.log(data.data);
+      });
   };
 
   return (
@@ -45,7 +67,7 @@ const AddService = () => {
                 type="text"
                 placeholder="Name"
                 required
-                value={user.displayName}
+                value={user?.displayName}
                 name="name"
               />
             </div>
@@ -59,7 +81,7 @@ const AddService = () => {
                 type="email"
                 placeholder="name@gmail.com"
                 required
-                value={user.email}
+                value={user?.email}
                 name="email"
               />
             </div>

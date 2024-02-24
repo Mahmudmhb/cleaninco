@@ -23,10 +23,7 @@ const nav = (
       {" "}
       <NavLink to="/services">Services</NavLink>
     </li>
-    <li>
-      {" "}
-      <NavLink to="/addservice">Add Service</NavLink>
-    </li>
+
     <li>
       {" "}
       <NavLink to="/contact">Contact</NavLink>
@@ -63,6 +60,10 @@ const Navber = () => {
                   </span>
                 </DropdownHeader>
                 <DropdownItem>Dashboard</DropdownItem>
+                <DropdownItem>
+                  {" "}
+                  <NavLink to="/addservice">Add Service</NavLink>
+                </DropdownItem>
                 <DropdownItem>Settings</DropdownItem>
                 <DropdownItem>Earnings</DropdownItem>
                 <DropdownDivider />

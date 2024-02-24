@@ -21,7 +21,7 @@ const SignUp = () => {
       .then((result) => {
         console.log(result.user);
         alert("successfuly signup");
-        console.log(result.user);
+        // console.log(result.user);
         handleUpdateUser(name, photoUrl).then().catch();
       })
       .catch((error) => {

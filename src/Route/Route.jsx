@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root/Root";
 import Home from "../Pages/Home/Home";
 import BlogDetails from "../Components/Blogs/BlogDetails";
-import About from "../Pages/About";
+// import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import ServiceDetails from "../Pages/Services/ServicesProvide/ServiceDetails";
 import Login from "../Pages/LoginPage/Login";
@@ -10,6 +10,7 @@ import SignUp from "../Pages/LoginPage/SignUp";
 import ErrorPage from "../Pages/ErrorPage";
 import Services from "../Pages/Services";
 import AddService from "../Pages/Services/AddService";
+import UserServiseDetails from "../Pages/Services/UserServiseDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,13 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+        loader: () => fetch("http://localhost:5000/newservices"),
+      },
+      {
+        path: "usersevicedetails/:id",
+        element: <UserServiseDetails></UserServiseDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/newservices/${params.id}`),
       },
       {
         path: "/addservice",
@@ -46,7 +54,7 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
-        path: "servicedetails",
+        path: "/servicedetails",
         element: <ServiceDetails></ServiceDetails>,
         loader: () => fetch("http://localhost:5000/services/"),
       },
