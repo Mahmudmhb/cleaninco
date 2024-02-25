@@ -17,10 +17,10 @@ const ServiceProvide = () => {
   // AOS.init();
 
   return (
-    <div>
+    <div className="mt-20">
       <div
         data-aos="fade-in"
-        className="grid w-5/6 mx-auto md:grid-cols-3 gap-4"
+        className="grid w-5/6 mx-auto md:grid-cols-3  gap-4"
       >
         <div className=" py-12 col-span-1 ">
           <div data-aos="fade-left">

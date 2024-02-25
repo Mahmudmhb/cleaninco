@@ -5,7 +5,7 @@ import Navber from "../Sheard/Headers/Navber";
 
 const Root = () => {
   return (
-    <div>
+    <div className="mx-auto">
       <Navber></Navber>
       <Outlet></Outlet>
       <Footer></Footer>
