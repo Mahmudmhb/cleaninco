@@ -10,8 +10,8 @@ const Blogs = () => {
   }, []);
 
   return (
-    <div className=" mb-20">
-      <div data-aos="zoom-out-up" className="text-center scroll-py-5 py-12">
+    <div className=" ">
+      <div className="text-center scroll-py-5 py-12">
         <h1 className="text-xl text-[#2097fc]">PRESS ROOM</h1>
         <p className="text-5xl text-[#052944] font-bold py-5">
           Featured in the several <br />
@@ -19,7 +19,12 @@ const Blogs = () => {
         </p>
       </div>
       {/* <h1>total: {blogs.length}</h1> */}
-      <div className="grid md:grid-cols-3 gap-3 mx-auto">
+      <div
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+        className="grid md:grid-cols-3 gap-3 mx-auto"
+      >
         {blogs.map((blog) => (
           <div
             data-aos="zoom-in-left"

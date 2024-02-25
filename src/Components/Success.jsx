@@ -10,7 +10,12 @@ AOS.init();
 
 const Success = () => {
   return (
-    <div data-aos="fade-down-left">
+    <div
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+      className=""
+    >
       <div className=" bg  my-10 py-10">
         <div className="md:flex md:justify-between items-center">
           <div className="text-center space-y-5  mx-auto ">

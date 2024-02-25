@@ -77,7 +77,6 @@ const ServiceProvide = () => {
         <img
           src="https://cleaninco-demo.pbminfotech.com/demo2/wp-content/uploads/sites/3/2019/04/Bg-img-01.jpg?id=9709"
           alt=""
-          data-aos="zoom-in"
         />
       </div>
     </div>
