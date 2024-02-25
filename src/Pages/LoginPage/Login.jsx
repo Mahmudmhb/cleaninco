@@ -1,9 +1,11 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
   const { handleLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleSignIn = (event) => {
     event.preventDefault();
     const from = event.target;
@@ -13,6 +15,7 @@ const Login = () => {
     handleLogin(email, password)
       .then((result) => {
         alert("user login");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);

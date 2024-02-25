@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Card, Dropdown } from "flowbite-react";
+import { Card } from "flowbite-react";
 import {
   Table,
   TableBody,
@@ -15,6 +15,7 @@ const MySchedules = () => {
   const [myBooking, setMyBooking] = useState([]);
   const [myPanding, setPanding] = useState([]);
   const { user } = useContext(AuthContext);
+  const [status, setStatus] = useState("panding");
   useEffect(() => {
     axios
       .get(`http://localhost:5000/addbook?ProviderEmail=${user.email}`)
@@ -24,7 +25,7 @@ const MySchedules = () => {
       .then((error) => {
         console.log(error.data);
       });
-  }, []);
+  }, [user]);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/addbook?userEmail=${user.email}`)
@@ -36,8 +37,24 @@ const MySchedules = () => {
       });
   }, [user.email]);
   //   console.log(myBooking);
+
+  const handleStatusChange = async (id, newStatus) => {
+    // const newStatus = event.target.value;
+    console.log(id, newStatus);
+    try {
+      //   Update the service status in the backend
+      await axios.put(`http://localhost:5000/addbook/${id}`, {
+        status: newStatus,
+      });
+      //   Update the local state
+      setStatus(newStatus);
+    } catch (error) {
+      console.error("Error updating service status:", error);
+    }
+  };
+  console.log(status);
   return (
-    <div className="w-5/6 mx-auto my-20 flex gap-4">
+    <div className=" mx-auto my-20 flex gap-4">
       <div>
         <h1 className="text-5xl text-[#052944] py-10 uppercase text-center">
           my book: {myBooking.length}
@@ -74,9 +91,9 @@ const MySchedules = () => {
                   <TableHeadCell>Date</TableHeadCell>
                   <TableHeadCell>Price</TableHeadCell>
                   <TableHeadCell>Action</TableHeadCell>
-                  <TableHeadCell>
+                  {/* <TableHeadCell>
                     <span className="sr-only">Edit</span>
-                  </TableHeadCell>
+                  </TableHeadCell> */}
                 </TableHead>
                 <TableBody>
                   {myPanding.map((panding) => (
@@ -91,20 +108,25 @@ const MySchedules = () => {
                       <TableCell>{panding.date}</TableCell>
                       <TableCell>${panding.price}</TableCell>
                       <TableCell>
-                        <Dropdown label="Teke Action">
-                          <Dropdown.Item onClick={() => alert("Dashboard!")}>
-                            Dashboard
-                          </Dropdown.Item>
-                          <Dropdown.Item onClick={() => alert("Settings!")}>
-                            Settings
-                          </Dropdown.Item>
-                          <Dropdown.Item onClick={() => alert("Earnings!")}>
-                            Earnings
-                          </Dropdown.Item>
-                          <Dropdown.Item onClick={() => alert("Sign out!")}>
-                            Sign out
-                          </Dropdown.Item>
-                        </Dropdown>
+                        {panding?.status ? (
+                          <>
+                            <p>{panding?.status}</p>
+                          </>
+                        ) : (
+                          <select
+                            value={status}
+                            onChange={(event) =>
+                              handleStatusChange(
+                                panding._id,
+                                event.target.value
+                              )
+                            }
+                          >
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                          </select>
+                        )}
                       </TableCell>
                     </TableRow>
                   ))}

@@ -15,20 +15,25 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const handleSignUp = (email, password) => {
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const handleLogin = (email, password) => {
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const handleUpdateUser = (name, photoUrl) => {
+    setIsLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoUrl,
     });
   };
   const handleLogOut = () => {
+    setIsLoading(true);
     return signOut(auth);
   };
 
@@ -36,6 +41,7 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       // console.log(currentUser);
       setUser(currentUser);
+      setIsLoading(false);
     });
     return () => unSubscribe();
   }, []);
@@ -45,6 +51,7 @@ const AuthProvider = ({ children }) => {
     handleUpdateUser,
     handleLogOut,
     user,
+    isLoading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
