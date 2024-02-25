@@ -46,22 +46,34 @@ const Navber = () => {
         <div className="flex md:order-2">
           {user ? (
             <>
-              <Dropdown
-                arrowIcon={false}
-                inline
-                label={
-                  <Avatar alt="User settings" img={user?.photoURL} rounded />
-                }
-              >
+              <div className="mr-5">
+                <Dropdown
+                  arrowIcon={false}
+                  inline
+                  label={
+                    <Avatar
+                      className="ml-5"
+                      alt="User settings"
+                      img={user?.photoURL}
+                      rounded
+                    />
+                  }
+                >
+                  <span className="block text-sm">{user?.displayName} </span>
+                </Dropdown>
+              </div>
+              <Dropdown label="Deshborad">
                 <DropdownHeader>
                   <span className="block text-sm">{user?.displayName}</span>
                   <span className="block truncate text-sm font-medium">
                     {user?.email}
                   </span>
                 </DropdownHeader>
-                <DropdownItem>Dashboard</DropdownItem>
                 <DropdownItem>
                   <NavLink to="/manageservice">Manage User Service</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink to="/myscheduls">My Scheduls</NavLink>
                 </DropdownItem>
                 <DropdownItem>
                   <NavLink to="/addservice">Add Service</NavLink>

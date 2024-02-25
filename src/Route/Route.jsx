@@ -12,6 +12,7 @@ import Services from "../Pages/Services";
 import AddService from "../Pages/Services/AddService";
 import UserServiseDetails from "../Pages/Services/UserServiseDetails";
 import ManageServices from "../Pages/Services/ManageServices";
+import MySchedules from "../Pages/Services/MySchedules";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/manageservice",
         element: <ManageServices></ManageServices>,
+      },
+      {
+        path: "/myscheduls",
+        element: <MySchedules></MySchedules>,
       },
       {
         path: "/addservice",

@@ -1,12 +1,13 @@
 import { useLoaderData } from "react-router-dom";
-import ToggleModel from "../../Components/ToggleModel";
+// import ToggleModel from "../../Components/ToggleModel";
 import { useContext, useState } from "react";
 import { Button, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const UserServiseDetails = () => {
-  const userDetails = useLoaderData();
+  const serviceDetails = useLoaderData();
+
   //   console.log(userDetails);
 
   //   toggol model
@@ -22,79 +23,84 @@ const UserServiseDetails = () => {
   const handleBookService = (event) => {
     event.preventDefault();
     const from = event.target;
-    const name = from.name.value;
+    const userName = from.name.value;
     const date = from.date.value;
     const photoUrl = from.photoUrl.value;
-    const email = from.email.value;
+    const userEmail = from.email.value;
     const price = from.price.value;
     const description = from.description.value;
     const area = from.serviceArea.value;
     const serviceName = from.serviceName.value;
 
-    const AddBooked = {
-      name,
-      photoUrl,
-      email,
-      price,
-      description,
-      area,
-      serviceName,
-      ProviderImage,
-      date,
-    };
-    // console.log(AddBooked);
+    // const AddBooked = {
+    //   name,
+    //   photoUrl,
+    //   email,
+    //   price,
+    //   description,
+    //   area,
+    //   serviceName,
+    //   ProviderImage,
+    //   date,
+    // };
+    // // console.log(AddBooked);
 
     axios
       .post("http://localhost:5000/addbook", {
-        name,
+        userName,
         photoUrl,
-        email,
+        userEmail,
         price,
         description,
         area,
         serviceName,
         ProviderImage,
         date,
+        ProviderEmail: serviceDetails.email,
       })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         // console.log(res.data);
         alert("post service");
       })
       .catch((data) => {
-        // console.log(data.data);
+        console.log(data.data);
       });
   };
 
   return (
     <div className="w-5/6 mx-auto">
-      <p className="text-4xl text-[#052944] my-12">{userDetails.serviceName}</p>
+      <p className="text-4xl text-[#052944] my-12">
+        {serviceDetails.serviceName}
+      </p>
       <div className="my-5">
-        <img src={userDetails.photoUrl} alt="" />
+        <img src={serviceDetails.photoUrl} alt="" />
       </div>
       <div className="flex  items-center gap-2">
         <div className="flex items-center gap-2">
           <img
-            src={userDetails.ProviderImage}
+            src={serviceDetails.ProviderImage}
             alt=""
             className="w-16 h-16 rounded-full"
           />
           <div className="text-left">
-            <h1>{userDetails.name}</h1>
+            <h1>{serviceDetails.name}</h1>
           </div>
           <div className="badge  p-3 badge-secondary">
-            Price: ${userDetails.price}
+            Price: ${serviceDetails.price}
           </div>
         </div>
         <div>
-          <p className="badge  p-3 badge-secondary">Area: {userDetails.area}</p>
+          <p className="badge  p-3 badge-secondary">
+            Area: {serviceDetails.area}
+          </p>
         </div>
       </div>
       <div className="my-5">
         <h1 className="text-4xl text-[#052944] my-12">
-          {userDetails.serviceName}
+          {serviceDetails.serviceName}
         </h1>
-        <p>{userDetails.description}</p>
+        <p>{serviceDetails.description}</p>
       </div>
 
       {/* toggol model  */}
@@ -153,7 +159,7 @@ const UserServiseDetails = () => {
                     type="text"
                     placeholder="Your Service Name"
                     required
-                    value={userDetails.serviceName}
+                    value={serviceDetails.serviceName}
                     name="serviceName"
                   />
                 </div>
@@ -178,7 +184,7 @@ const UserServiseDetails = () => {
                     type="text"
                     placeholder="Service Photo Url"
                     required
-                    value={userDetails.photoUrl}
+                    value={serviceDetails.photoUrl}
                     name="photoUrl"
                   />
                 </div>
@@ -193,7 +199,7 @@ const UserServiseDetails = () => {
                       type="number"
                       placeholder="Service Price"
                       required
-                      value={userDetails.price}
+                      value={serviceDetails.price}
                       name="price"
                     />
                   </div>
@@ -206,7 +212,7 @@ const UserServiseDetails = () => {
                       type="text"
                       placeholder="Service Area"
                       required
-                      value={userDetails.area}
+                      value={serviceDetails.area}
                       name="serviceArea"
                     />
                   </div>
