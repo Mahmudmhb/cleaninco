@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const RecentBlog = () => {
   const [recentBlog, setRecentBLog] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://cleaninco-server.vercel.app/blogs")
       .then((res) => res.json())
       .then((data) => setRecentBLog(data));
   }, []);

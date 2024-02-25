@@ -1,19 +1,25 @@
 import { FaQuoteLeft } from "react-icons/fa";
 import testimonialImage from "../assets/testimonial/testimonial-bg.jpg";
 import testimonial1 from "../assets/testimonial/testimonial-3.jpg";
-
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+AOS.init();
 const Testimonial = () => {
   return (
     <div className="md:flex md:relative">
       <div>
-        <div className=" space-y-5 ml-10 py-12">
+        <div data-aos="zoom-in" className=" space-y-5 ml-10 py-12">
           <h1 className="text-xl text-[#2097fc]">TESTIMOANIL</h1>
           <p className="text-5xl text-[#052944] py-2">What our clients say?</p>
           <img src={testimonialImage} className="w-full md:-ml-48" alt="" />
         </div>
       </div>
 
-      <div className="md:flex md:absolute md:w-1/2 text-white rounded md:-ml-20  md:right-0  justify-center  bg-[#2097fc] items-center">
+      <div
+        data-aos="flip-right"
+        className="md:flex md:absolute md:w-1/2 text-white rounded md:-ml-20  md:right-0  justify-center  bg-[#2097fc] items-center"
+      >
         <div className=" p-20">
           <FaQuoteLeft className="h-20 w-20 absolute  text-[#ffe52c]" />
 

@@ -47,7 +47,7 @@ const UserServiseDetails = () => {
     // // console.log(AddBooked);
 
     axios
-      .post("http://localhost:5000/addbook", {
+      .post("https://cleaninco-server.vercel.app/addbook", {
         userName,
         photoUrl,
         userEmail,

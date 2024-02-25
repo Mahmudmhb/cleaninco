@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <div>
       <footer className="footer py-20 bg-[#052944] text-white">
-        <aside>
-          <img src={logo} alt="" />
+        <aside className="ml-5">
+          <img src={logo} alt="" className="w-48 ml-5" />
           <p>
             Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
             labore et dolore.

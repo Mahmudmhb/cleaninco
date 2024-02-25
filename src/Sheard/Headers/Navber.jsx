@@ -13,32 +13,40 @@ import {
 } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+// import { motion } from "framer-motion";
 
-const nav = (
-  <>
-    <li>
-      <NavLink to="/">Home</NavLink>
-    </li>
-    <li>
-      {" "}
-      <NavLink to="/services">Services</NavLink>
-    </li>
-
-    <li>
-      {" "}
-      <NavLink to="/contact">Contact</NavLink>
-    </li>
-  </>
-);
 const Navber = () => {
   const { user, handleLogOut } = useContext(AuthContext);
   // console.log(user);
   const handleSignOut = () => {
     handleLogOut().then().catch();
   };
+  const nav = (
+    <>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        {" "}
+        <NavLink to="/services">Services</NavLink>
+      </li>
+      {user ? (
+        <>
+          <li>
+            <NavLink to="/myscheduls">My Scheduls</NavLink>
+          </li>
+          <li>
+            <NavLink to="/manageservice">Manage User Service</NavLink>
+          </li>
+        </>
+      ) : (
+        ""
+      )}
+    </>
+  );
 
   return (
-    <div>
+    <div className="">
       <Navbar className="h-20" fluid rounded>
         <NavbarBrand href="/">
           <img src={logo} className="mr-3 h-6 sm:h-9" alt="cleaninco " />
@@ -62,6 +70,7 @@ const Navber = () => {
                   <span className="block text-sm">{user?.displayName} </span>
                 </Dropdown>
               </div>
+
               <Dropdown label="Deshborad">
                 <DropdownHeader>
                   <span className="block text-sm">{user?.displayName}</span>
@@ -78,11 +87,11 @@ const Navber = () => {
                 <DropdownItem>
                   <NavLink to="/addservice">Add Service</NavLink>
                 </DropdownItem>
-                <DropdownItem>Settings</DropdownItem>
-                <DropdownItem>Earnings</DropdownItem>
+
                 <DropdownDivider />
                 <DropdownItem onClick={handleSignOut}>Sign out</DropdownItem>
               </Dropdown>
+
               <NavbarToggle />
             </>
           ) : (

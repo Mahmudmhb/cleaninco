@@ -30,7 +30,7 @@ const AddService = () => {
     // // console.log(AddServices);
 
     axios
-      .post("http://localhost:5000/newservices", {
+      .post("https://cleaninco-server.vercel.app/newservices", {
         name,
         photoUrl,
         email,

@@ -1,15 +1,16 @@
-import success1 from "../assets/success/close-up-disinfecting-with-cleaning-supplies_23-2148529578.jpg";
-import success2 from "../assets/success/happy-father-talking-son-while-cleaning_23-2148457041.avif";
-import success3 from "../assets/success/man-is-tired-from-cleaning_23-2148112279.avif";
 import success4 from "../assets/success/medium-shot-people-cleaning-building_23-2150454517.avif";
 // import bg from "../assets/success/bg-img.png";
 import "./Success.css";
 import { GiMedallist, GiVacuumCleaner } from "react-icons/gi";
 import { MdCleanHands } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Success = () => {
   return (
-    <div>
+    <div data-aos="fade-down-left">
       <div className=" bg  my-10 py-10">
         <div className="md:flex md:justify-between items-center">
           <div className="text-center space-y-5  mx-auto ">
@@ -32,7 +33,10 @@ const Success = () => {
             <h1 className="text-6xl font-bold  text-white">285</h1>
             <h1>Successful Projects</h1>
           </div>{" "}
-          <div className="text-center space-y-5  mx-auto text-white">
+          <div
+            data-aos="zoom-in-down"
+            className="text-center space-y-5  mx-auto text-white"
+          >
             <div className="bg-[#ffe52c] flex justify-center items-center rounded-full p-5">
               <GiMedallist className=" w-24 h-24 font-bold text-[#052944]" />
             </div>

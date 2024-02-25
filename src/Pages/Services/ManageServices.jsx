@@ -11,7 +11,9 @@ const ManageServices = () => {
   const [upadte, setUpdate] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/manageService?email=${user?.email}`)
+      .get(
+        `https://cleaninco-server.vercel.app/manageService?email=${user?.email}`
+      )
       .then((res) => {
         setUserServices(res.data);
       })
@@ -42,7 +44,7 @@ const ManageServices = () => {
       .then((result) => {
         if (result.isConfirmed) {
           axios
-            .delete(`http://localhost:5000/manageService/${id}`)
+            .delete(`https://cleaninco-server.vercel.app/manageService/${id}`)
             .then((res) => {
               console.log(res.data);
               if (res.data.deletedCount > 0) {
@@ -104,7 +106,7 @@ const ManageServices = () => {
     };
     console.log(updateService);
 
-    fetch(`http://localhost:5000/manageService/${upadte._id}`, {
+    fetch(`https://cleaninco-server.vercel.app/manageService/${upadte._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateService),

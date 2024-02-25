@@ -7,7 +7,7 @@ import Marquee from "react-fast-marquee";
 
 const OurSkill = () => {
   return (
-    <div className="border-b-2 my-5">
+    <div data-aos="fade-down-right" className="border-b-2 my-5">
       <div className="md:flex mt-10">
         <div className="md:w-1/2">
           <h1 className="text-xl text-[#2097fc]">OUR SKILLS</h1>

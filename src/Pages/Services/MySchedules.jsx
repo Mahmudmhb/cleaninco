@@ -18,7 +18,9 @@ const MySchedules = () => {
   const [status, setStatus] = useState("panding");
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/addbook?ProviderEmail=${user.email}`)
+      .get(
+        `https://cleaninco-server.vercel.app/addbook?ProviderEmail=${user.email}`
+      )
       .then((res) => {
         setPanding(res.data);
       })
@@ -28,7 +30,9 @@ const MySchedules = () => {
   }, [user]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/addbook?userEmail=${user.email}`)
+      .get(
+        `https://cleaninco-server.vercel.app/addbook?userEmail=${user.email}`
+      )
       .then((res) => {
         setMyBooking(res.data);
       })
@@ -43,7 +47,7 @@ const MySchedules = () => {
     // console.log(id, newStatus);
     try {
       //   Update the service status in the backend
-      await axios.put(`http://localhost:5000/addbook/${id}`, {
+      await axios.put(`https://cleaninco-server.vercel.app/addbook/${id}`, {
         status: newStatus,
       });
       //   Update the local state
@@ -54,7 +58,7 @@ const MySchedules = () => {
   };
   console.log(status);
   return (
-    <div className=" mx-auto my-20 flex gap-4">
+    <div className=" mx-auto my-20 md:flex gap-4">
       <div>
         <h1 className="text-5xl text-[#052944] py-10 uppercase text-center">
           my book: {myBooking.length}

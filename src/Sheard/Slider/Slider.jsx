@@ -6,7 +6,7 @@ import { LuPlayCircle } from "react-icons/lu";
 
 const Slider = () => {
   return (
-    <div className="carousel h-[100vh] w-full">
+    <div className="carousel h-full w-full">
       <div id="slide1" className="carousel-item relative w-full">
         <img src={slider1} className="w-full" />
         <div className="absolute flex items-center transform -translate-y-1/2  w-1/2 h-full top-1/2 bg-gradient-to-r from-[#eefafa] ">
@@ -40,9 +40,14 @@ const Slider = () => {
       <div id="slide2" className="carousel-item relative w-full">
         <img src={slider2} className="w-full" />
         <div className="absolute flex items-center transform -translate-y-1/2  w-1/2 h-full top-1/2 bg-gradient-to-r from-[#f3f4f6] ">
-          <div className=" ml-10 space-y-7">
+          <div
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            className=" ml-10 space-y-7"
+          >
             <img src={sliderleft} alt="" />
-            <h1 className="text-5xl font-bold   text-[#052943]">
+            <h1 className="md:text-5xl font-bold   text-[#052943]">
               We Cover Large <br /> Range of Cleaning <br />
               Services
             </h1>

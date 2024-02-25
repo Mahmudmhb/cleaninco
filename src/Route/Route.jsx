@@ -29,12 +29,12 @@ const router = createBrowserRouter([
         path: "/blogdetails/:id",
         element: <BlogDetails></BlogDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/blogs/${params.id}`),
+          fetch(`https://cleaninco-server.vercel.app/blogs/${params.id}`),
       },
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/newservices"),
+        loader: () => fetch("https://cleaninco-server.vercel.app/newservices"),
       },
       {
         path: "usersevicedetails/:id",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/newservices/${params.id}`),
+          fetch(`https://cleaninco-server.vercel.app/newservices/${params.id}`),
       },
       {
         path: "/manageservice",
@@ -78,12 +78,12 @@ const router = createBrowserRouter([
         path: "/servicedetails/:id",
         element: <PrivateRoute></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://cleaninco-server.vercel.app/services/${params.id}`),
       },
       {
         path: "/servicedetails",
         element: <ServiceDetails></ServiceDetails>,
-        loader: () => fetch("http://localhost:5000/services/"),
+        loader: () => fetch("https://cleaninco-server.vercel.app/services/"),
       },
       {
         path: "/login",

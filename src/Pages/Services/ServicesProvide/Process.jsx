@@ -10,7 +10,12 @@ const Process = () => {
   }, []);
   // console.log(procsses);
   return (
-    <div className="">
+    <div
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+      className=""
+    >
       <div className="text-center scroll-py-5 py-12">
         <h1 className="text-xl text-[#2097fc]">OUR PROCESS</h1>
         <p className="text-5xl text-[#052944] py-5">
@@ -20,7 +25,7 @@ const Process = () => {
       </div>
       <div className="md:grid md:grid-cols-4 gap-2">
         {procsses.map((proces) => (
-          <div key={proces.id} className="card ">
+          <div data-aos="zoom-out-up" key={proces.id} className="card ">
             <div className="rounded-[50%]  mx-auto h-[186px] relative w-[186px] border-4	">
               <figure className="px-10 pt-10">
                 <img src={proces.image} alt="Shoes" className="rounded-xl" />
