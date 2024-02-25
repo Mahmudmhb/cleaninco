@@ -63,7 +63,7 @@ const MySchedules = () => {
         <h1 className="text-5xl text-[#052944] py-10 uppercase text-center">
           my book: {myBooking.length}
         </h1>
-        <div className="grid gap-4">
+        <div className="md:grid gap-4">
           {myBooking.map((book) => (
             <Card
               key={book._id}
