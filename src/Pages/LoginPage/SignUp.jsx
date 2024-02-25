@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 // import Auth from "../../Hook/Auth";
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { handleSignUp, handleUpdateUser } = useContext(AuthContext);
   //   console.log(handleSignUp);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -20,12 +23,18 @@ const SignUp = () => {
     handleSignUp(email, password)
       .then((result) => {
         console.log(result.user);
-        alert("successfuly signup");
+        Swal.fire(`"Succseefully Login ${result.user.displayName}`);
         // console.log(result.user);
+        navigate(location?.state ? location.state : "/");
         handleUpdateUser(name, photoUrl).then().catch();
       })
       .catch((error) => {
-        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+          footer: `<Link to='/login'>${error.message}</link>`,
+        });
       });
   };
 

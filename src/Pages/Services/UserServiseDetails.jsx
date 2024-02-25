@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { Button, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import axios from "axios";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const UserServiseDetails = () => {
   const serviceDetails = useLoaderData();
@@ -61,10 +62,15 @@ const UserServiseDetails = () => {
       .then((res) => {
         console.log(res);
         // console.log(res.data);
-        alert("post service");
+        Swal.fire("Your Booking is Confirm");
       })
       .catch((data) => {
-        console.log(data.data);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${data.data}`,
+          footer: `<Link to='/login'>${data.data}</link>`,
+        });
       });
   };
 

@@ -111,7 +111,7 @@ const ManageServices = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        Swal.fire("Your Booking is Updated");
       });
   };
   //

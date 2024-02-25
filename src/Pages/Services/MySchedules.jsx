@@ -40,7 +40,7 @@ const MySchedules = () => {
 
   const handleStatusChange = async (id, newStatus) => {
     // const newStatus = event.target.value;
-    console.log(id, newStatus);
+    // console.log(id, newStatus);
     try {
       //   Update the service status in the backend
       await axios.put(`http://localhost:5000/addbook/${id}`, {

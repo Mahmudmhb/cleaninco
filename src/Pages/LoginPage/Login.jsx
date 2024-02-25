@@ -2,6 +2,7 @@ import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 const Login = () => {
   const { handleLogin } = useContext(AuthContext);
   const location = useLocation();
@@ -14,11 +15,20 @@ const Login = () => {
     // const userLogin = { email, password };
     handleLogin(email, password)
       .then((result) => {
-        alert("user login");
+        // alert("user login");
+        Swal.fire(`"Succseefully Login ${result.user.displayName}`);
+
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
+
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+          footer: `<Link to='/login'>${error.message}</link>`,
+        });
       });
 
     // console.log(userLogin);
