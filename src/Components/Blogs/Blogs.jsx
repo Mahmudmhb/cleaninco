@@ -20,16 +20,16 @@ const Blogs = () => {
       </div>
       {/* <h1>total: {blogs.length}</h1> */}
       <div
-      // data-aos="fade-down"
-      // data-aos-easing="linear"
-      // data-aos-duration="1500"
-      // className="md:grid md:grid-cols-3 md:gap-3 mx-auto"
+        // data-aos="fade-down"
+        // data-aos-easing="linear"
+        // data-aos-duration="1500"
+        className="md:grid md:grid-cols-3 md:gap-3 mx-auto"
       >
         {blogs.map((blog) => (
           <div
             data-aos="zoom-in-left"
             key={blog.id}
-            className="mx-auto md:w-96 bg-base-100 "
+            className="mx-auto md:w-[350px] bg-base-100 "
           >
             <figure className="relative">
               <img
