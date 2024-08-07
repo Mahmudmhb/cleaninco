@@ -29,12 +29,13 @@ const router = createBrowserRouter([
         path: "/blogdetails/:id",
         element: <BlogDetails></BlogDetails>,
         loader: ({ params }) =>
-          fetch(`https://cleaninco-server.vercel.app/blogs/${params.id}`),
+          fetch(`https://cleaninco-server.onrender.com/blogs/${params.id}`),
       },
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("https://cleaninco-server.vercel.app/newservices"),
+        loader: () =>
+          fetch("https://cleaninco-server.onrender.com/newservices"),
       },
       {
         path: "usersevicedetails/:id",
@@ -44,7 +45,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://cleaninco-server.vercel.app/newservices/${params.id}`),
+          fetch(
+            `https://cleaninco-server.onrender.com/newservices/${params.id}`
+          ),
       },
       {
         path: "/manageservice",
@@ -78,12 +81,12 @@ const router = createBrowserRouter([
         path: "/servicedetails/:id",
         element: <PrivateRoute></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`https://cleaninco-server.vercel.app/services/${params.id}`),
+          fetch(`https://cleaninco-server.onrender.com/services/${params.id}`),
       },
       {
         path: "/servicedetails",
         element: <ServiceDetails></ServiceDetails>,
-        loader: () => fetch("https://cleaninco-server.vercel.app/services/"),
+        loader: () => fetch("https://cleaninco-server.onrender.com/services/"),
       },
       {
         path: "/login",

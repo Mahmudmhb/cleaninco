@@ -9,7 +9,7 @@ AOS.init();
 const ServiceProvide = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("https://cleaninco-server.vercel.app/services/")
+    fetch("https://cleaninco-server.onrender.com/services/")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
